@@ -28,6 +28,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .antMatchers(POST, "/api/**").authenticated()
                 .antMatchers(PUT, "/api/**").authenticated()
                 .antMatchers(DELETE, "/api/**").authenticated()
+                .antMatchers("/login").permitAll()
                 .antMatchers("/admin/**").access("hasRole('ROLE_ADMIN')")
                 .and()
                 .formLogin().usernameParameter("username").passwordParameter("password");
