@@ -28,6 +28,12 @@ public class HomeController {
     }
 
 
+    @RequestMapping(value = "/bouteilles", method = RequestMethod.GET)
+    public String bouteilles() {
+        return "bouteilles-page";
+    }
+
+
     @RequestMapping("/admin")
     public ModelAndView admin(Principal principal) {
         return new ModelAndView("admin-home", "user", principal.getName());

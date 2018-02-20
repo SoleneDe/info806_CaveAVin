@@ -12,11 +12,12 @@ public class BouteilleService {
 
     public BouteilleService() {
         bouteilles = new ArrayList<>();
-        bouteilles.add(new Bouteille("Ritchie", "Blackmore"));
-        bouteilles.add(new Bouteille("Jon", "Lord"));
-        bouteilles.add(new Bouteille("Ian", "Paice"));
-        bouteilles.add(new Bouteille("Rod", "Evans"));
-        bouteilles.add(new Bouteille("Nick", "Simper"));
+        bouteilles.add(new Bouteille("Bouteille 1", "Region 1", 2001));
+        bouteilles.add(new Bouteille("Bouteille 2", "Region 2", 2002));
+        bouteilles.add(new Bouteille("Bouteille 3", "Region 3", 2003));
+        bouteilles.add(new Bouteille("Bouteille 4", "Region 4", 2004));
+        bouteilles.add(new Bouteille("Bouteille 5", "Region 5", 2005));
+        bouteilles.add(new Bouteille("Bouteille 6", "Region 6", 2006));
     }
 
     public List<Bouteille> all() {
