@@ -1,6 +1,6 @@
-package fr.univ_smb.isc.m2.domain.customer;
+package fr.univ_smb.isc.m2.domain.casier;
 
-public class Customer {
+public class Casier {
 
     public final String firstName;
     public final String lastName;
@@ -8,7 +8,7 @@ public class Customer {
 
     private static int counter = 0;
 
-    public Customer(String firstName, String lastName) {
+    public Casier(String firstName, String lastName) {
         this.firstName = firstName;
         this.lastName = lastName;
         id = counter++;
