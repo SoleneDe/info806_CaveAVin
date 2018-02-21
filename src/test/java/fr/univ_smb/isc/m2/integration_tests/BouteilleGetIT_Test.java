@@ -19,7 +19,7 @@ import static org.apache.http.HttpStatus.SC_OK;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.junit.Assert.assertEquals;
 
-public class BouteilleGetIT {
+public class BouteilleGetIT_Test {
 
 
     @Test

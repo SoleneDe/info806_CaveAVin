@@ -17,7 +17,7 @@
     
     <script type="text/javascript" >
     $(document).ready(function(){
-        afficherBouteilles(6);
+        afficherBouteilles();
     });
 
     
