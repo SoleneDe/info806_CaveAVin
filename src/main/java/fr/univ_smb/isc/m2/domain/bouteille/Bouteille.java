@@ -15,5 +15,11 @@ public class Bouteille {
         this.annee = annee;
         id = counter++;
     }
+    
+    @Override
+    public String toString()
+    {
+        return id + " : " + nom + ", " + region + ", " + annee;
+    }
 
 }
