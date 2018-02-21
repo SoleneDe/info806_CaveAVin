@@ -11,6 +11,8 @@ import org.springframework.web.servlet.ModelAndView;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.security.Principal;
+import org.springframework.ui.ModelMap;
+import org.springframework.web.bind.annotation.PathVariable;
 
 @Controller
 public class HomeController {
@@ -31,6 +33,14 @@ public class HomeController {
     @RequestMapping(value = "/bouteilles", method = RequestMethod.GET)
     public String bouteilles() {
         return "bouteilles-page";
+    }
+
+
+    @RequestMapping(value = "/bouteilles/{id}", method = RequestMethod.GET)
+    public String bouteille(@PathVariable("id") String id) {
+        ModelMap model = new ModelMap();
+        model.put("id", id);
+        return "bouteille-page";
     }
 
 

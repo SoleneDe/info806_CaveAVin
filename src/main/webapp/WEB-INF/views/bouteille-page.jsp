@@ -17,7 +17,7 @@
     
     <script type="text/javascript" >
     $(document).ready(function(){
-        afficherBouteilles(6);
+        afficherBouteille(${id});
     });
 
     
@@ -28,8 +28,8 @@
 
 <div>
 
-    <h1>Test pour afficher les bouteilles</h1>
-    <div id="listeBout"></div>
+    <h1>Test pour afficher la bouteille</h1>
+    <div id="bout"></div>
 
 </div>
 
