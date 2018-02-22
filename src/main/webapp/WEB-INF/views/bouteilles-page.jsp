@@ -17,6 +17,7 @@
     
     <script type="text/javascript" >
     $(document).ready(function(){
+        loadImgRep("<c:url value="/resources/img/" />");
         afficherBouteilles();
     });
 
