@@ -12,11 +12,10 @@ public class CasierService {
 
     public CasierService() {
         casiers = new ArrayList<>();
-        casiers.add(new Casier("Ritchie", "Blackmore"));
-        casiers.add(new Casier("Jon", "Lord"));
-        casiers.add(new Casier("Ian", "Paice"));
-        casiers.add(new Casier("Rod", "Evans"));
-        casiers.add(new Casier("Nick", "Simper"));
+        casiers.add(new Casier("Casier 1"));
+        casiers.add(new Casier("Casier 2"));
+        casiers.add(new Casier("Casier 3"));
+        casiers.add(new Casier("Casier 4"));
     }
 
     public List<Casier> all() {
