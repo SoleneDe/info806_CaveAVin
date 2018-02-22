@@ -47,9 +47,19 @@ public class Casier {
             return 0;
     }
     
+    public Bouteille findBouteilleById(int id){
+        for(Map.Entry<Bouteille, Integer> entry : contenu.entrySet()) {
+            if (entry.getKey().id == id)
+                return entry.getKey();
+        }
+        
+        return null;
+        
+    }
+    
     @Override
     public String toString(){
-        return id + " : " + nom;
+        return id+"";
     }
 
     @Override

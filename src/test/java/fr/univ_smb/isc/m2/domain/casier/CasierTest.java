@@ -79,4 +79,24 @@ public class CasierTest {
         assertEquals(cas.nbBouteilles(bout2), 0);
     }
     
+    @Test
+    public void should_Find_Bottle_By_Its_Id() {
+        Casier cas = new Casier("Casier");
+        Bouteille bout = new Bouteille("Bout", "Reg", 2000, "placeholder.jpg");
+        int id = bout.id;
+        
+        cas.add(bout);
+        
+        assertEquals(cas.findBouteilleById(id), bout);
+    }
+    
+    @Test
+    public void should_Not_Find_Unexisting_Bottle_By_Its_Id() {
+        Casier cas = new Casier("Casier");
+        Bouteille bout = new Bouteille("Bout", "Reg", 2000, "placeholder.jpg");
+        int id = bout.id;
+        
+        assertNull(cas.findBouteilleById(id));
+    }
+    
 }

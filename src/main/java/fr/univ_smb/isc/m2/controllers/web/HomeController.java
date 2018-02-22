@@ -44,6 +44,20 @@ public class HomeController {
     }
 
 
+    @RequestMapping(value = "/casiers", method = RequestMethod.GET)
+    public String casiers() {
+        return "casiers-page";
+    }
+
+
+    @RequestMapping(value = "/casiers/{id}", method = RequestMethod.GET)
+    public String casier(@PathVariable("id") String id) {
+        ModelMap model = new ModelMap();
+        model.put("id", id);
+        return "casier-page";
+    }
+
+
     @RequestMapping("/admin")
     public ModelAndView admin(Principal principal) {
         return new ModelAndView("admin-home", "user", principal.getName());

@@ -20,7 +20,7 @@ public class Bouteille {
     
     @Override
     public String toString(){
-        return id + " : " + nom + ", " + region + ", " + annee;
+        return id+"";
     }
 
     @Override
