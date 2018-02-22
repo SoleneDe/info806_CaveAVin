@@ -57,7 +57,21 @@ function afficherCasiers()
             $.each(data, function (i, item) {
                 $("#listeCas").append("<li>" +
                         item.id + ". " + item.nom +
-                  "</li>");
+                    "</li>");
+          
+                $("#listeCas").append("<ul id='casier"+ item.id +"'>");
+
+                console.log(item.contenu);
+                $.each(item.contenu, function (j, item2) {
+                    console.log("Hey "+item2);
+                    $("#casier"+item.id).append("<li>" +
+                            item2 +
+                      "</li>");
+
+                });
+
+                $("#casier"+item.id).append("</ul>");
+                        
             });
 
         },
