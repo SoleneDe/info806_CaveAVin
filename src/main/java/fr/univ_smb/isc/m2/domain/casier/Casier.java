@@ -2,6 +2,7 @@ package fr.univ_smb.isc.m2.domain.casier;
 
 import fr.univ_smb.isc.m2.domain.bouteille.Bouteille;
 import java.util.HashMap;
+import java.util.Map;
 
 public class Casier {
 
@@ -18,9 +19,6 @@ public class Casier {
     }
     
     public void add(Bouteille bout){
-        // chercher si la bouteille existe déjà
-        // oui : +1
-        // non : on rajoute à la liste
         if(contains(bout)){
             contenu.put(bout, contenu.get(bout) + 1);
         } else {
@@ -30,6 +28,23 @@ public class Casier {
     
     public boolean contains(Bouteille bout){
         return contenu.containsKey(bout);
+    }
+    
+    public int nbBouteilles() {
+        int result = 0;
+
+        for(Map.Entry<Bouteille, Integer> entry : contenu.entrySet()) {
+            result += entry.getValue();
+        }
+        
+        return result;
+    }
+    
+    public int nbBouteilles(Bouteille bout) {
+        if (contenu.get(bout) != null)
+            return contenu.get(bout);
+        else
+            return 0;
     }
     
     @Override
