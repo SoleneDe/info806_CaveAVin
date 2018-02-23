@@ -74,6 +74,28 @@ function afficherCasiers() {
     });
 }
 
+// bouteille-page
+function afficherCasier(id)
+{
+    $.ajax({ 
+        url: "/api/casiers/"+id, 
+        type: 'GET', 
+        dataType: 'json',
+        contentType: 'application/json',
+        mimeType: 'application/json',
+        success: function(data) {
+            $("#casier").append(data.nom );
+            
+            var idContenu = Object.keys(data.contenu);
+            $.each(idContenu, function (i, id) {
+                afficherBouteilleDansCasier(id, data.contenu[id], "#casier");
+            });
+                
+        },
+        error: processError
+    });
+}
+
 // casiers-page
 function afficherBouteilleDansCasier(idBouteille, quantite, localisation) {
     
