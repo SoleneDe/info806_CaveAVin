@@ -64,7 +64,7 @@ function afficherCasiers() {
                 var idContenu = Object.keys(item.contenu);
                 
                 $.each(idContenu, function (j, id) {
-                    afficherBouteilleDansCasier(id, "#casier"+item.id);
+                    afficherBouteilleDansCasier(id, item.contenu[id], "#casier"+item.id);
 
                 });
                 $("#casier"+item.id).append("</ul>");       
@@ -75,7 +75,7 @@ function afficherCasiers() {
 }
 
 // casiers-page
-function afficherBouteilleDansCasier(idBouteille, localisation) {
+function afficherBouteilleDansCasier(idBouteille, quantite, localisation) {
     
     $.ajax({ 
         url: "/api/bouteilles/"+idBouteille, 
@@ -85,7 +85,7 @@ function afficherBouteilleDansCasier(idBouteille, localisation) {
         mimeType: 'application/json',
         success: function(data) { 
             $(localisation).append("<li>" +
-                    data.nom + ", " + data.region + ", " + data.annee +
+                    data.nom + ", " + data.region + ", " + data.annee + " | " + quantite +
               "</li>");
         },
         error: processError
