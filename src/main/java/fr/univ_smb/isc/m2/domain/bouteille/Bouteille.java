@@ -5,7 +5,7 @@ public class Bouteille {
     public final String nom;
     public final String region;
     public final int annee;
-    public final int id;
+    public int id; // TODO: remettre en final
     public final String photo;
 
     private static int counter = 0;

@@ -1,9 +1,12 @@
 var imgRep; // dossier où se trouvent les images
+// bouteilles-page
+// bouteille-page
 function loadImgRep(rep)
 {
     imgRep = rep;
 }
 
+// bouteilles-page
 function afficherBouteilles()
 {
     $.ajax({ 
@@ -20,12 +23,11 @@ function afficherBouteilles()
                   "</li>");
             });
         },
-        error:function(data,status,er) { 
-            alert("error: "+data[0]+" status: "+status+" er:"+er);
-        }
+        error: processError
     });
 }
 
+// bouteille-page
 function afficherBouteille(id)
 {
     $.ajax({ 
@@ -39,14 +41,12 @@ function afficherBouteille(id)
             $("#bout").append("<img width='30px' height='30px' src='"+imgRep+data.photo+"'></img>");
                 
         },
-        error:function(data,status,er) { 
-            alert("error: "+data[0]+" status: "+status+" er:"+er);
-        }
+        error: processError
     });
 }
 
-function afficherCasiers()
-{
+// casiers-page
+function afficherCasiers() {
     $.ajax({ 
         url: "/api/casiers", 
         type: 'GET', 
@@ -61,22 +61,38 @@ function afficherCasiers()
           
                 $("#listeCas").append("<ul id='casier"+ item.id +"'>");
 
-                console.log(item.contenu);
-                $.each(item.contenu, function (j, item2) {
-                    console.log("Hey "+item2);
-                    $("#casier"+item.id).append("<li>" +
-                            item2 +
-                      "</li>");
+                var idContenu = Object.keys(item.contenu);
+                
+                $.each(idContenu, function (j, id) {
+                    afficherBouteilleDansCasier(id, "#casier"+item.id);
 
                 });
-
-                $("#casier"+item.id).append("</ul>");
-                        
+                $("#casier"+item.id).append("</ul>");       
             });
-
         },
-        error:function(data,status,er) { 
-            alert("error: "+data[0]+" status: "+status+" er:"+er);
-        }
+        error: processError
     });
+}
+
+// casiers-page
+function afficherBouteilleDansCasier(idBouteille, localisation) {
+    
+    $.ajax({ 
+        url: "/api/bouteilles/"+idBouteille, 
+        type: 'GET', 
+        dataType: 'json',
+        contentType: 'application/json',
+        mimeType: 'application/json',
+        success: function(data) { 
+            $(localisation).append("<li>" +
+                    data.nom + ", " + data.region + ", " + data.annee +
+              "</li>");
+        },
+        error: processError
+    });
+    
+}
+
+function processError(data,status,er) { 
+    alert("error: "+data[0]+" status: "+status+" er:"+er);
 }

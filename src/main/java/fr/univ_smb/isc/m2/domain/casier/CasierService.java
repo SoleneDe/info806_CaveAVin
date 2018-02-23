@@ -11,7 +11,7 @@ public class CasierService {
 
     private final ArrayList<Casier> casiers;
 
-    public CasierService() {
+    public CasierService() {  
         casiers = new ArrayList<>();
         casiers.add(new Casier("Casier 1"));
         casiers.add(new Casier("Casier 2"));
@@ -19,8 +19,11 @@ public class CasierService {
         casiers.add(new Casier("Casier 4"));
         
         Bouteille bout1 = new Bouteille("Bouteille 1", "Region 1", 2001, "placeholder.jpg");
+        bout1.id = 9;
         Bouteille bout2 = new Bouteille("Bouteille 2", "Region 2", 2002, "placeholder.jpg");
+        bout2.id = 10;
         Bouteille bout3 = new Bouteille("Bouteille 3", "Region 3", 2003, "placeholder.jpg");
+        bout3.id = 11;
         
         casiers.get(0).add(bout1);
         casiers.get(0).add(bout1);
