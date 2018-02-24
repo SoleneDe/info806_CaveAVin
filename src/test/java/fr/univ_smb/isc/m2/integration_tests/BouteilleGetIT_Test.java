@@ -36,7 +36,7 @@ public class BouteilleGetIT_Test {
     @Test
     public void should_200_On_Existing_Bouteille() throws IOException, URISyntaxException {
 
-        HttpUriRequest request = new HttpGet(new URL("http://localhost:"+8080+"/api/bouteilles/" + 12).toURI());
+        HttpUriRequest request = new HttpGet(new URL("http://localhost:"+8080+"/api/bouteilles/" + 0).toURI());
 
         HttpResponse response = HttpClientBuilder.create().build().execute(request);
 
@@ -58,7 +58,7 @@ public class BouteilleGetIT_Test {
     @Test
     public void should_Have_The_Good_Amount_Of_Attributes() throws IOException, URISyntaxException
     {
-        HttpUriRequest request = new HttpGet(new URL("http://localhost:"+8080+"/api/bouteilles/" + 12).toURI());
+        HttpUriRequest request = new HttpGet(new URL("http://localhost:"+8080+"/api/bouteilles/" + 0).toURI());
         HttpResponse response = HttpClientBuilder.create().build().execute(request);
         
         BufferedReader rd = new BufferedReader(

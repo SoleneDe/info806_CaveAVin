@@ -11,6 +11,8 @@ public class BouteilleService {
     private final ArrayList<Bouteille> bouteilles;
 
     public BouteilleService() {
+        Bouteille.resetCounter();
+        
         bouteilles = new ArrayList<>();
         bouteilles.add(new Bouteille("Bouteille 1", "Region 1", 2001, "bouteille.jpg"));
         bouteilles.add(new Bouteille("Bouteille 2", "Region 2", 2002, "bouteille.jpg"));

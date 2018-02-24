@@ -18,6 +18,11 @@ public class Bouteille {
         this.photo = photo;
     }
     
+    public static void resetCounter() {
+        counter = 0;
+        
+    }
+    
     @Override
     public String toString(){
         return id+"";

@@ -18,6 +18,11 @@ public class Casier {
         id = counter++;
     }
     
+    public static void resetCounter() {
+        counter = 0;
+        
+    }
+    
     public void add(Bouteille bout){
         if(contains(bout)){
             contenu.put(bout, contenu.get(bout) + 1);
