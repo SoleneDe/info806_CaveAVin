@@ -22,7 +22,7 @@ public class BouteillePostIT_Test {
     @Test
     public void should_200_On_Bouteille_Creation() throws IOException, URISyntaxException {
 
-        HttpPost httpPost = new HttpPost(new URL("http://localhost:" + 8080 + "/api/bouteille").toURI());
+        HttpPost httpPost = new HttpPost(new URL("http://localhost:" + 8080 + "/api/bouteilles").toURI());
         ArrayList<NameValuePair> postParameters = new ArrayList<>();
         postParameters.add(new BasicNameValuePair("nom", "Bouteille Test"));
         postParameters.add(new BasicNameValuePair("region", "Region Test"));

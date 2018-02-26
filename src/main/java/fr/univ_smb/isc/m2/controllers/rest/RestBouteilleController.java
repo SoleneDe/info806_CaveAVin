@@ -47,9 +47,30 @@ public class RestBouteilleController {
 
     }
     
-    @RequestMapping(value = "/bouteille", method = RequestMethod.POST)
+    @RequestMapping(value = "/bouteilles", method = RequestMethod.POST)
     public Bouteille createBouteille(@RequestParam String nom, @RequestParam String region, @RequestParam String annee, @RequestParam String photo) {
         return bouteilleService.create(nom, region, Integer.parseInt(annee), photo);
+    }
+    
+    @RequestMapping(value = "/bouteilles/{id}", method = RequestMethod.PUT)
+    public Bouteille modifBouteille(@PathVariable String id, 
+            @RequestParam(value = "nom", required=false) String nom, 
+            @RequestParam(value = "region", required=false) String region, 
+            @RequestParam(value = "annee", required=false) String annee, 
+            @RequestParam(value = "photo", required=false) String photo) {
+        
+        if (nom!=null)
+            bouteilleService.modifNom(parseInt(id), nom);
+        if (region!=null)
+            bouteilleService.modifRegion(parseInt(id), region);
+        if (annee!=null)
+            bouteilleService.modifAnnee(parseInt(id), parseInt(annee));
+        if (photo!=null)
+            bouteilleService.modifPhoto(parseInt(id), photo);
+        
+        
+        return bouteilleService.selectById(parseInt(id));
+        
     }
 
 }

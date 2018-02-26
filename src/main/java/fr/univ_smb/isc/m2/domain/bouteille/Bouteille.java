@@ -2,11 +2,11 @@ package fr.univ_smb.isc.m2.domain.bouteille;
 
 public class Bouteille {
 
-    public final String nom;
-    public final String region;
-    public final int annee;
+    public String nom;
+    public String region;
+    public int annee;
     public int id; // TODO: remettre en final
-    public final String photo;
+    public String photo;
 
     private static int counter = 0;
 
@@ -16,6 +16,14 @@ public class Bouteille {
         this.annee = annee;
         id = counter++;
         this.photo = photo;
+    }
+    
+    public Bouteille(Bouteille other) {
+        nom = other.nom;
+        region = other.region;
+        annee = other.annee;
+        id = other.id;
+        photo = other.photo;
     }
     
     public static void resetCounter() {
