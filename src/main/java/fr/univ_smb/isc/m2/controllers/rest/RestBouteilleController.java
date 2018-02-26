@@ -72,5 +72,10 @@ public class RestBouteilleController {
         return bouteilleService.selectById(parseInt(id));
         
     }
+    
+    @RequestMapping(value = "/bouteilles/{id}", method = RequestMethod.DELETE)
+    public void supprBouteille(@PathVariable String id) {
+        bouteilleService.delete(parseInt(id));
+    }
 
 }

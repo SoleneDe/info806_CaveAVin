@@ -11,14 +11,10 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.net.URISyntaxException;
 import java.net.URL;
-import java.util.ArrayList;
         
 import static org.apache.http.HttpStatus.SC_OK;
-import org.apache.http.NameValuePair;
-import org.apache.http.client.entity.UrlEncodedFormEntity;
 import org.apache.http.client.methods.HttpPut;
 import org.apache.http.client.methods.HttpUriRequest;
-import org.apache.http.message.BasicNameValuePair;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.junit.Assert.assertEquals;
 
@@ -28,7 +24,7 @@ public class BouteillePutIT_Test {
     @Test
     public void should_200_On_Bouteille_Modification() throws IOException, URISyntaxException {
         
-        HttpUriRequest request = new HttpPut(new URL("http://localhost:"+8080+"/api/bouteilles/2?nom=Test&region=Test&annee=2000").toURI());
+        HttpUriRequest request = new HttpPut(new URL("http://localhost:"+8080+"/api/bouteilles/1?nom=Test&region=Test&annee=2000").toURI());
 
         HttpResponse response = HttpClientBuilder.create().build().execute(request);
 
@@ -41,7 +37,7 @@ public class BouteillePutIT_Test {
 
         
         
-        HttpUriRequest request = new HttpPut(new URL("http://localhost:"+8080+"/api/bouteilles/2?nom=Test&region=Test&annee=2000").toURI());
+        HttpUriRequest request = new HttpPut(new URL("http://localhost:"+8080+"/api/bouteilles/1?nom=Test&region=Test&annee=2000").toURI());
         HttpResponse response = HttpClientBuilder.create().build().execute(request);
 
         BufferedReader rd = new BufferedReader(

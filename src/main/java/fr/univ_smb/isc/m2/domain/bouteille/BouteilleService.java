@@ -54,6 +54,10 @@ public class BouteilleService {
         return bouteille;
     }
     
+    public void delete(int id) {
+        bouteilles.remove(bouteilles.get(findIndexById(id)));
+    }
+    
     public void modifNom(int id, String nom) {
         bouteilles.get(findIndexById(id)).nom = nom;
     }
