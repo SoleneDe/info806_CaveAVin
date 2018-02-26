@@ -41,9 +41,22 @@ public class CasierService {
         return casiers;
     }
     
+    public int findIndexById(int id) {
+        for (int i=0; i<casiers.size(); i++) {
+            if (casiers.get(i).id == id) {
+                return i;
+            }
+        }
+        return -1;
+    }
+    
     public Casier create(String nom) {
         Casier casier = new Casier(nom);
         casiers.add(casier);
         return casier;
+    }
+    
+    public void delete(int id) {
+        casiers.remove(casiers.get(findIndexById(id)));
     }
 }

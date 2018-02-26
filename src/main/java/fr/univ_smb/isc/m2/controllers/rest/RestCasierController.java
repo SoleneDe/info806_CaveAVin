@@ -51,5 +51,10 @@ public class RestCasierController {
     public Casier createCasier(@RequestParam String nom) {
         return casierService.create(nom);
     }
+    
+    @RequestMapping(value = "/casiers/{id}", method = RequestMethod.DELETE)
+    public void supprCasier(@PathVariable String id) {
+        casierService.delete(parseInt(id));
+    }
 
 }
