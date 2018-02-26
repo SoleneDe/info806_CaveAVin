@@ -13,6 +13,7 @@ import java.util.List;
 
 import static java.lang.Integer.parseInt;
 import static java.util.stream.Collectors.toList;
+import org.springframework.web.bind.annotation.RequestParam;
 
 @RestController
 @RequestMapping("/api")
@@ -44,6 +45,11 @@ public class RestCasierController {
 
         return collect.get(0);
 
+    }
+    
+    @RequestMapping(value = "/casiers", method = RequestMethod.POST)
+    public Casier createCasier(@RequestParam String nom) {
+        return casierService.create(nom);
     }
 
 }

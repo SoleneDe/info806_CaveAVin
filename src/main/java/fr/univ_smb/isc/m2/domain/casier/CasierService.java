@@ -40,4 +40,10 @@ public class CasierService {
     public List<Casier> all() {
         return casiers;
     }
+    
+    public Casier create(String nom) {
+        Casier casier = new Casier(nom);
+        casiers.add(casier);
+        return casier;
+    }
 }
