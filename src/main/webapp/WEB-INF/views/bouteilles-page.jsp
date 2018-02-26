@@ -31,7 +31,7 @@
     <h1>Test pour afficher les bouteilles</h1>
     <div id="listeBout"></div>
     
-    <button type="button" id="btnCreate">Créer une bouteille</button>
+    <button type="button" id="btnCreate" onclick="location.href = '/creer/bouteilles';">Créer une bouteille</button>
 
 </div>
 

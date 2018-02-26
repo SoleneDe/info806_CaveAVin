@@ -131,7 +131,7 @@ function creerBouteille() {
         contentType: 'application/json',
         mimeType: 'application/json',
         success: function(data) {
-            
+            alert(data);
         },
         error: processError
     });
