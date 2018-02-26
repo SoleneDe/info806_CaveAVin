@@ -25,4 +25,10 @@ public class BouteilleService {
     public List<Bouteille> all() {
         return bouteilles;
     }
+    
+    public Bouteille create(String nom, String region, int annee, String photo) {
+        Bouteille bouteille = new Bouteille(nom, region, annee, photo);
+        bouteilles.add(bouteille);
+        return bouteille;
+    }
 }

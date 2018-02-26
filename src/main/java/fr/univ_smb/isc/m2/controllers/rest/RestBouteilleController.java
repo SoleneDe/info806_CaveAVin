@@ -13,6 +13,7 @@ import java.util.List;
 
 import static java.lang.Integer.parseInt;
 import static java.util.stream.Collectors.toList;
+import org.springframework.web.bind.annotation.RequestParam;
 
 @RestController
 @RequestMapping("/api")
@@ -44,6 +45,11 @@ public class RestBouteilleController {
 
         return collect.get(0);
 
+    }
+    
+    @RequestMapping(value = "/bouteille", method = RequestMethod.POST)
+    public Bouteille createBouteille(@RequestParam String nom, @RequestParam String region, @RequestParam String annee, @RequestParam String photo) {
+        return bouteilleService.create(nom, region, Integer.parseInt(annee), photo);
     }
 
 }

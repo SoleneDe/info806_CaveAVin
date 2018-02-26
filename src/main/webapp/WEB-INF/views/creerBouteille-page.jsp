@@ -15,23 +15,22 @@
     <script type='text/javascript' src="<c:url value="/resources/js/jquery-3.3.1.min.js" />"></script>
     <script type='text/javascript' src="<c:url value="/resources/js/script.js" />"></script>
     
-    <script type="text/javascript" >
-    $(document).ready(function(){
-        loadImgRep("<c:url value="/resources/img/" />");
-        afficherBouteilles();
-    });
-    
-    </script>
 </head>
 
 <body>
 
 <div>
 
-    <h1>Test pour afficher les bouteilles</h1>
-    <div id="listeBout"></div>
+    <h1>Test pour créer une bouteille</h1>
     
-    <button type="button" id="btnCreate">Créer une bouteille</button>
+    <form>
+        <input type="text" name="nom" placeholder="Nom"/>
+        <input type="text" name="region" placeholder="Région"/>
+        <input type="text" name="annee" placeholder="Année"/>
+        <input type="text" name="photo" placeholder="Photo"/>
+        
+        <input type="submit" value="Submit"/>
+    </form>
 
 </div>
 
