@@ -32,7 +32,11 @@ public class Casier {
     }
     
     public void modifQuantity(Bouteille bout, int nouvQuantite){
-        contenu.put(bout, nouvQuantite);
+        if (nouvQuantite < 1) {
+            contenu.remove(bout);
+        } else {
+            contenu.put(bout, nouvQuantite);
+        }
     }
     
     public boolean contains(Bouteille bout){

@@ -111,4 +111,22 @@ public class CasierTest {
         assertNull(cas.findBouteilleById(id));
     }
     
+    @Test
+    public void should_Remove_A_Bottle_With_Quantity_Zero() {
+        Casier cas = new Casier("Casier");
+        Bouteille bout = new Bouteille("Bout", "Reg", 2000, "placeholder.jpg");
+        int id = bout.id;
+        
+        cas.add(bout);
+        cas.add(bout);
+        
+        assertEquals(cas.nbBouteilles(bout), 2);
+        
+        cas.modifQuantity(bout, 0);
+        
+        assertNull(cas.findBouteilleById(id));
+        assertEquals(cas.nbBouteilles(bout), 0);
+        assertEquals(cas.nbBouteilles(), 0);
+    }
+    
 }

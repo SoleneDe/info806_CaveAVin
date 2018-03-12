@@ -17,6 +17,7 @@ import org.apache.http.client.methods.HttpPut;
 import org.apache.http.client.methods.HttpUriRequest;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNull;
 
 public class CasierPutIT_Test {
 
@@ -69,6 +70,26 @@ public class CasierPutIT_Test {
         JsonNode rootNode = mapper.readTree(result).get("contenu");
         
         assertEquals(rootNode.get("0").asText(), "5");
+
+
+    }
+
+    @Test
+    public void should_Remove_Bottle_From_The_Locker() throws IOException, URISyntaxException {
+
+        
+        HttpUriRequest request = new HttpPut(new URL("http://localhost:"+8080+"/api/casiers/0?idBouteille=1&quantite=0").toURI());
+        HttpResponse response = HttpClientBuilder.create().build().execute(request);
+
+        BufferedReader rd = new BufferedReader(
+                new InputStreamReader(response.getEntity().getContent()));
+        
+        String result = rd.readLine();
+        
+        ObjectMapper mapper = new ObjectMapper();
+        JsonNode rootNode = mapper.readTree(result).get("contenu");
+        
+        assertNull(rootNode.get("1"));
 
 
     }
