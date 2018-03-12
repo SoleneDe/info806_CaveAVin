@@ -55,6 +55,18 @@ public class CasierTest {
     }
     
     @Test
+    public void should_Contain_The_Right_Amount_Of_Bottles_After_Modif() {
+        Casier cas = new Casier("Casier");
+        Bouteille bout = new Bouteille("Bout", "Reg", 2000, "placeholder.jpg");
+        
+        cas.modifQuantity(bout, 5);
+        assertEquals(cas.nbBouteilles(), 5);
+        
+        cas.modifQuantity(bout, 3);
+        assertEquals(cas.nbBouteilles(), 3);
+    }
+    
+    @Test
     public void should_Be_Able_To_Count_The_Different_Kind_Of_Bottle() {
         Casier cas = new Casier("Casier");
         Bouteille bout = new Bouteille("Bout", "Reg", 2000, "placeholder.jpg");

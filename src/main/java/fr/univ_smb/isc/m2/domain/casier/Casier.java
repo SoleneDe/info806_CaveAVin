@@ -6,7 +6,7 @@ import java.util.Map;
 
 public class Casier {
 
-    public final String nom;
+    public String nom;
     public HashMap<Bouteille, Integer> contenu;
     public final int id;
 
@@ -29,6 +29,10 @@ public class Casier {
         } else {
             contenu.put(bout, 1);
         }
+    }
+    
+    public void modifQuantity(Bouteille bout, int nouvQuantite){
+        contenu.put(bout, nouvQuantite);
     }
     
     public boolean contains(Bouteille bout){

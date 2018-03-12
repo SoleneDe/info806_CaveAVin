@@ -5,6 +5,7 @@ import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 import java.util.List;
+import static java.util.stream.Collectors.toList;
 
 @Service
 public class CasierService {
@@ -40,6 +41,18 @@ public class CasierService {
     public List<Casier> all() {
         return casiers;
     }
+
+    public Casier selectById(int id) {
+        List<Casier> collect = casiers.stream()
+                .filter(u -> u.id == id)
+                .collect(toList());
+
+        if (collect.isEmpty()) {
+            return null;
+        } else {
+            return collect.get(0);
+        }
+    }
     
     public int findIndexById(int id) {
         for (int i=0; i<casiers.size(); i++) {
@@ -56,7 +69,21 @@ public class CasierService {
         return casier;
     }
     
+    public void modifQuantity(int id, int idBouteille, int nouvQuantite) {
+        Casier casier = casiers.get(findIndexById(id));
+        Bouteille bouteille = casier.findBouteilleById(idBouteille);
+        
+        casier.modifQuantity(bouteille, nouvQuantite);
+        
+    }
+    
     public void delete(int id) {
         casiers.remove(casiers.get(findIndexById(id)));
     }
+    
+    public void modifNom(int id, String nom) {
+        casiers.get(findIndexById(id)).nom = nom;
+    }
+    
+    
 }

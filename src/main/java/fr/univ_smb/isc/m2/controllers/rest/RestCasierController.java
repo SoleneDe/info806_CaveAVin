@@ -52,6 +52,23 @@ public class RestCasierController {
         return casierService.create(nom);
     }
     
+    @RequestMapping(value = "/casiers/{id}", method = RequestMethod.PUT)
+    public Casier modifCasier(@PathVariable String id, 
+            @RequestParam(value = "nom", required=false) String nom, 
+            @RequestParam(value = "idBouteille", required=false) String idBouteille,
+            @RequestParam(value = "quantite", required=false) String quantite) {
+        
+        if (nom!=null) {
+            casierService.modifNom(parseInt(id), nom);
+        }
+        if (idBouteille!=null && quantite!=null) {
+            casierService.modifQuantity(parseInt(id), parseInt(idBouteille), parseInt(quantite));
+        }
+        
+        return casierService.selectById(parseInt(id));
+        
+    }
+    
     @RequestMapping(value = "/casiers/{id}", method = RequestMethod.DELETE)
     public void supprCasier(@PathVariable String id) {
         casierService.delete(parseInt(id));
