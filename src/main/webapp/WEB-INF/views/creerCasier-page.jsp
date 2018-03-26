@@ -17,21 +17,27 @@
     
     <script type="text/javascript" >
     $(document).ready(function(){
-        afficherCasiers();
+        $("#btnCreer").click(function(){
+            creerCasier();
+        });
     });
-
-    
     </script>
+    
 </head>
 
 <body>
 
 <div>
 
-    <h1>Test pour afficher les casiers</h1>
-    <div id="listeCas"></div>
+    <h1>Test pour créer un casier</h1>
     
-    <button type="button" id="btnCreate" onclick="location.href = '/creer/casiers';">Créer un casier</button>
+    <form>
+        <input type="text" id="nom" name="nom" placeholder="Nom"/>
+        
+        <input type="button" value="Submit" id="btnCreer"/>
+    </form>
+    
+    <div id="result"></div>
 
 </div>
 

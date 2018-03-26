@@ -191,6 +191,22 @@ function creerBouteille() {
     
 }
 
+// creerCasier-page
+function creerCasier() {
+    $.ajax({ 
+        url: "/api/casiers?nom=" + $("#nom").val(), 
+        type: 'POST', 
+        dataType: 'json',
+        contentType: 'application/json',
+        mimeType: 'application/json',
+        success: function(data) {
+            $("#result").append("Done");
+        },
+        error: processError
+    });
+    
+}
+
 function processError(data,status,er) { 
     alert("error: "+data[0]+" status: "+status+" er:"+er);
 }
