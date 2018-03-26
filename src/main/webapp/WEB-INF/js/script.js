@@ -49,7 +49,7 @@ function afficherBouteille(id)
 function modifBouteille(id) {
     var paramsNames = ['nom', 'region', 'annee', 'photo'];
     var params = ['', '', '', ''];
-    var strParams='?';
+    var strParams='';
     var isFirstParam = true;
     
     params[0] = $("#nom").val();
@@ -64,6 +64,10 @@ function modifBouteille(id) {
             if (!isFirstParam)
             {
                 strParams = strParams + "&";
+            }
+            else
+            {
+                strParams = strParams + "?";
             }
             strParams = strParams + paramsNames[i] + "=" + params[i];
             isFirstParam = false;
