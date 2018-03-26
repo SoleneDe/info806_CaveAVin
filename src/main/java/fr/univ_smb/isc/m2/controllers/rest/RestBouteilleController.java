@@ -49,10 +49,8 @@ public class RestBouteilleController {
 
     }
     
-    //@ResponseBody
     @RequestMapping(value = "/bouteilles", method = RequestMethod.POST)
     public Bouteille createBouteille(@RequestParam String nom, @RequestParam String region, @RequestParam String annee, @RequestParam String photo) {
-    //public Bouteille createBouteille(@RequestBody Bouteille bout) {
         return bouteilleService.create(nom, region, parseInt(annee), photo);
     }
     
@@ -78,8 +76,8 @@ public class RestBouteilleController {
     }
     
     @RequestMapping(value = "/bouteilles/{id}", method = RequestMethod.DELETE)
-    public void supprBouteille(@PathVariable String id) {
-        bouteilleService.delete(parseInt(id));
+    public Bouteille supprBouteille(@PathVariable String id) {
+        return bouteilleService.delete(parseInt(id));
     }
 
 }

@@ -70,8 +70,8 @@ public class RestCasierController {
     }
     
     @RequestMapping(value = "/casiers/{id}", method = RequestMethod.DELETE)
-    public void supprCasier(@PathVariable String id) {
-        casierService.delete(parseInt(id));
+    public Casier supprCasier(@PathVariable String id) {
+        return casierService.delete(parseInt(id));
     }
 
 }

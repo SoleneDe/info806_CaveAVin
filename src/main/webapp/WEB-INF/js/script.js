@@ -45,6 +45,22 @@ function afficherBouteille(id)
     });
 }
 
+// bouteille-page
+function supprBouteille(id) {
+    $.ajax({ 
+        url: "/api/bouteilles/"+id, 
+        type: 'DELETE', 
+        dataType: 'json',
+        contentType: 'application/json',
+        mimeType: 'application/json',
+        success: function(data) {
+            $("#result").append("Deleted");
+        },
+        error: processError
+    });
+    
+}
+
 // casiers-page
 function afficherCasiers() {
     $.ajax({ 
@@ -74,7 +90,7 @@ function afficherCasiers() {
     });
 }
 
-// bouteille-page
+// casier-page
 function afficherCasier(id)
 {
     $.ajax({ 

@@ -54,21 +54,15 @@ public class BouteilleService {
         return bouteille;
     }
     
-    // TO DELETE: TEST
-    public Bouteille create(String nom) {
-        Bouteille bouteille = new Bouteille(nom, "TEST", 1000, "TEST.JPG");
-        bouteilles.add(bouteille);
-        return bouteille;
-    }
-    
     public Bouteille create(Bouteille other) {
         Bouteille bouteille = new Bouteille(other);
         bouteilles.add(bouteille);
         return bouteille;
     }
     
-    public void delete(int id) {
-        bouteilles.remove(bouteilles.get(findIndexById(id)));
+    public Bouteille delete(int id) {
+        int index = bouteilles.indexOf(bouteilles.get(findIndexById(id)));
+        return bouteilles.remove(index);
     }
     
     public void modifNom(int id, String nom) {

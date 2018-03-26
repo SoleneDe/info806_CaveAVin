@@ -18,7 +18,6 @@
     <script type="text/javascript" >
     $(document).ready(function(){
         $("#btnCreer").click(function(){
-            console.log("Click");
             creerBouteille();
         });
     });

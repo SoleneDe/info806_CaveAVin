@@ -77,8 +77,9 @@ public class CasierService {
         
     }
     
-    public void delete(int id) {
-        casiers.remove(casiers.get(findIndexById(id)));
+    public Casier delete(int id) {
+        int index = casiers.indexOf(casiers.get(findIndexById(id)));
+        return casiers.remove(index);
     }
     
     public void modifNom(int id, String nom) {

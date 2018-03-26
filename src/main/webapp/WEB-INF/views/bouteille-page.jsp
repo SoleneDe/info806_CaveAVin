@@ -19,6 +19,10 @@
     $(document).ready(function(){
         loadImgRep("<c:url value="/resources/img/" />");
         afficherBouteille(${id});
+        
+        $("#btnSuppr").click(function(){
+            supprBouteille(${id});
+        });
     });
 
     
@@ -31,6 +35,9 @@
 
     <h1>Test pour afficher la bouteille</h1>
     <div id="bout"></div>
+    
+    <input type="button" value="Supprimer" id="btnSuppr"/>
+    <div id="result"></div>
 
 </div>
 
