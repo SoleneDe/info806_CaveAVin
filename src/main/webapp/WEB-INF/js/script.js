@@ -46,6 +46,45 @@ function afficherBouteille(id)
 }
 
 // bouteille-page
+function modifBouteille(id) {
+    var paramsNames = ['nom', 'region', 'annee', 'photo'];
+    var params = ['', '', '', ''];
+    var strParams='?';
+    var isFirstParam = true;
+    
+    params[0] = $("#nom").val();
+    params[1] = $("#region").val();
+    params[2] = $("#annee").val();
+    params[3] = $("#photo").val();
+    
+    for (var i=0; i<4; i++)
+    {
+        if (params[i] !== '')
+        {
+            if (!isFirstParam)
+            {
+                strParams = strParams + "&";
+            }
+            strParams = strParams + paramsNames[i] + "=" + params[i];
+            isFirstParam = false;
+        }   
+    }
+    
+    $.ajax({ 
+        url: "/api/bouteilles/"+id+strParams, 
+        type: 'PUT', 
+        dataType: 'json',
+        contentType: 'application/json',
+        mimeType: 'application/json',
+        success: function(data) {
+            $("#result").append("Modified");
+        },
+        error: processError
+    });
+    
+}
+
+// bouteille-page
 function supprBouteille(id) {
     $.ajax({ 
         url: "/api/bouteilles/"+id, 

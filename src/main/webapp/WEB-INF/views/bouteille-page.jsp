@@ -23,6 +23,10 @@
         $("#btnSuppr").click(function(){
             supprBouteille(${id});
         });
+        
+        $("#btnModif").click(function(){
+            modifBouteille(${id});
+        });
     });
 
     
@@ -35,6 +39,15 @@
 
     <h1>Test pour afficher la bouteille</h1>
     <div id="bout"></div>
+    
+    <form>
+        <input type="text" id="nom" name="nom" placeholder="Nom"/>
+        <input type="text" id="region" name="region" placeholder="Région"/>
+        <input type="text" id="annee" name="annee" placeholder="Année"/>
+        <input type="text" id="photo" name="photo" placeholder="Photo"/>
+        
+        <input type="button" value="Modifier" id="btnModif"/>
+    </form>
     
     <input type="button" value="Supprimer" id="btnSuppr"/>
     <div id="result"></div>
