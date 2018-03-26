@@ -123,7 +123,7 @@ function afficherCasiers() {
                 var idContenu = Object.keys(item.contenu);
                 
                 $.each(idContenu, function (j, id) {
-                    afficherBouteilleDansCasier(id, item.contenu[id], "#casier"+item.id);
+                    afficherBouteillesDansCasier(id, item.contenu[id], "#casier"+item.id, false);
 
                 });
                 $("#casier"+item.id).append("</ul>");       
@@ -147,7 +147,7 @@ function afficherCasier(id)
             
             var idContenu = Object.keys(data.contenu);
             $.each(idContenu, function (i, id) {
-                afficherBouteilleDansCasier(id, data.contenu[id], "#casier");
+                afficherBouteillesDansCasier(id, data.contenu[id], "#casier", true);
             });
                 
         },
@@ -172,8 +172,12 @@ function supprCasier(id) {
 }
 
 // casiers-page
-function afficherBouteilleDansCasier(idBouteille, quantite, localisation) {
+function afficherBouteillesDansCasier(idBouteille, quantite, localisation, modifOK) {
     
+    var qte = quantite;
+    if (modifOK)
+        qte = "<input type='number' id='qte"+ idBouteille +"' value='" + quantite + "'>";
+   
     $.ajax({ 
         url: "/api/bouteilles/"+idBouteille, 
         type: 'GET', 
@@ -182,7 +186,7 @@ function afficherBouteilleDansCasier(idBouteille, quantite, localisation) {
         mimeType: 'application/json',
         success: function(data) { 
             $(localisation).append("<li>" +
-                    data.nom + ", " + data.region + ", " + data.annee + " | " + quantite +
+                    data.id + ". " + data.nom + ", " + data.region + ", " + data.annee + " | " + qte +
               "</li>");
         },
         error: processError
@@ -220,6 +224,15 @@ function creerCasier() {
         },
         error: processError
     });
+    
+}
+
+// casier-page
+function modifQteDansCasier(idCasier) {
+    // boucle for ? Récupérer les <li> ?
+    // récupérer l'id de la bouteills
+    // et le contenu de l'input sur la page
+    // mettre à jour PUT api/casiers, w/ idB & idC & qte ?
     
 }
 

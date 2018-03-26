@@ -19,6 +19,10 @@
     $(document).ready(function(){
         afficherCasier(${id});
         
+        $("#btnModifQte").click(function(){
+            modifQteDansCasier(${id});
+        });
+        
         $("#btnSuppr").click(function(){
             supprCasier(${id});
         });
@@ -34,6 +38,8 @@
 
     <h1>Test pour afficher le casier</h1>
     <div id="casier"></div>
+    
+    <input type="button" value="Valider changement bouteilles" id="btnModifQte"/>
     
     <input type="button" value="Supprimer" id="btnSuppr"/>
     <div id="result"></div>
