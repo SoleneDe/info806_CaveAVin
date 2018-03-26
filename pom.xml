@@ -203,7 +203,7 @@
                         </goals>
                         <configuration>
                             <includes>
-                                <include>**/*IT.java</include>
+                                <include>**/*IT_Test.java</include>
                             </includes>
                         </configuration>
                     </execution>

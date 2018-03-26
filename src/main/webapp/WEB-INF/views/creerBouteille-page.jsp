@@ -16,9 +16,11 @@
     <script type='text/javascript' src="<c:url value="/resources/js/script.js" />"></script>
     
     <script type="text/javascript" >
-    $("#formulaire").submit(function(){
-        alert("Test");
-        creerBouteille();
+    $(document).ready(function(){
+        $("#btnCreer").click(function(){
+            console.log("Click");
+            creerBouteille();
+        });
     });
     </script>
     
@@ -30,14 +32,16 @@
 
     <h1>Test pour créer une bouteille</h1>
     
-    <form id="formulaire" >
-        <input type="text" name="nom" placeholder="Nom"/>
-        <input type="text" name="region" placeholder="Région"/>
-        <input type="text" name="annee" placeholder="Année"/>
-        <input type="text" name="photo" placeholder="Photo"/>
+    <form>
+        <input type="text" id="nom" name="nom" placeholder="Nom"/>
+        <input type="text" id="region" name="region" placeholder="Région"/>
+        <input type="text" id="annee" name="annee" placeholder="Année"/>
+        <input type="text" id="photo" name="photo" placeholder="Photo"/>
         
-        <input type="submit" value="Submit"/>
+        <input type="button" value="Submit" id="btnCreer"/>
     </form>
+    
+    <div id="result"></div>
 
 </div>
 

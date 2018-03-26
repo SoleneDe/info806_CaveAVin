@@ -117,21 +117,15 @@ function afficherBouteilleDansCasier(idBouteille, quantite, localisation) {
 
 // creerBouteille-page
 function creerBouteille() {
-    
     $.ajax({ 
-        url: "/api/bouteilles", 
+        url: "/api/bouteilles?nom=" + $("#nom").val() + "&region=" + $("#region").val()
+            + "&annee=" + $("#annee").val() + "&photo=" + $("#photo").val(), 
         type: 'POST', 
         dataType: 'json',
-        data:{
-            nom: $("#nom").val(),
-            region: $("#region").val(),
-            annee: $("#annee").val(),
-            photo: $("#photo").val()
-        },
         contentType: 'application/json',
         mimeType: 'application/json',
         success: function(data) {
-            alert(data);
+            $("#result").append("Done");
         },
         error: processError
     });

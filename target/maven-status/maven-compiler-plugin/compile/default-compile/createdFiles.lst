@@ -1,8 +1,14 @@
+fr\univ_smb\isc\m2\domain\casier\CasierService.class
 fr\univ_smb\isc\m2\config\rest\ResourceNotFoundException.class
 fr\univ_smb\isc\m2\config\WebInitializer.class
 fr\univ_smb\isc\m2\config\WebConfig.class
+fr\univ_smb\isc\m2\domain\casier\Casier.class
 fr\univ_smb\isc\m2\config\SecurityConfig.class
 fr\univ_smb\isc\m2\config\rest\AuthFailureHandler.class
 fr\univ_smb\isc\m2\config\SecurityInitializer.class
+fr\univ_smb\isc\m2\controllers\rest\RestBouteilleController.class
+fr\univ_smb\isc\m2\domain\bouteille\BouteilleService.class
 fr\univ_smb\isc\m2\controllers\web\HomeController.class
 fr\univ_smb\isc\m2\config\rest\HttpLogoutSuccessHandler.class
+fr\univ_smb\isc\m2\controllers\rest\RestCasierController.class
+fr\univ_smb\isc\m2\domain\bouteille\Bouteille.class

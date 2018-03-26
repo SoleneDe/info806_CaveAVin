@@ -13,7 +13,9 @@ import java.util.List;
 
 import static java.lang.Integer.parseInt;
 import static java.util.stream.Collectors.toList;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 @RestController
 @RequestMapping("/api")
@@ -47,9 +49,11 @@ public class RestBouteilleController {
 
     }
     
+    //@ResponseBody
     @RequestMapping(value = "/bouteilles", method = RequestMethod.POST)
     public Bouteille createBouteille(@RequestParam String nom, @RequestParam String region, @RequestParam String annee, @RequestParam String photo) {
-        return bouteilleService.create(nom, region, Integer.parseInt(annee), photo);
+    //public Bouteille createBouteille(@RequestBody Bouteille bout) {
+        return bouteilleService.create(nom, region, parseInt(annee), photo);
     }
     
     @RequestMapping(value = "/bouteilles/{id}", method = RequestMethod.PUT)
