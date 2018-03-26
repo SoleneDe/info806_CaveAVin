@@ -155,6 +155,22 @@ function afficherCasier(id)
     });
 }
 
+// casier-page
+function supprCasier(id) {
+    $.ajax({ 
+        url: "/api/casiers/"+id, 
+        type: 'DELETE', 
+        dataType: 'json',
+        contentType: 'application/json',
+        mimeType: 'application/json',
+        success: function(data) {
+            $("#result").append("Deleted");
+        },
+        error: processError
+    });
+    
+}
+
 // casiers-page
 function afficherBouteilleDansCasier(idBouteille, quantite, localisation) {
     

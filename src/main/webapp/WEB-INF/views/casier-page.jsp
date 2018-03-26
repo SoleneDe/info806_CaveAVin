@@ -18,6 +18,10 @@
     <script type="text/javascript" >
     $(document).ready(function(){
         afficherCasier(${id});
+        
+        $("#btnSuppr").click(function(){
+            supprCasier(${id});
+        });
     });
 
     
@@ -30,6 +34,10 @@
 
     <h1>Test pour afficher le casier</h1>
     <div id="casier"></div>
+    
+    <input type="button" value="Supprimer" id="btnSuppr"/>
+    <div id="result"></div>
+
 
 </div>
 
