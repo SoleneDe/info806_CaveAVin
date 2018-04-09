@@ -39,6 +39,8 @@
     <h1>Test pour afficher le casier</h1>
     <div id="casier"></div>
     
+    <input type="text" id="bouteille" name="bouteille" placeholder="idBouteille"/>
+    <input type="number" id="qteInit" value="1">
     <input type="button" value="Valider changement bouteilles" id="btnModifQte"/>
     
     <input type="button" value="Supprimer" id="btnSuppr"/>

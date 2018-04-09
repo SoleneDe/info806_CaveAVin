@@ -1,4 +1,5 @@
 var imgRep; // dossier où se trouvent les images
+var nbTypeBoutDansCasier; // utilisé pour la modification du contenu d'un casier
 // bouteilles-page
 // bouteille-page
 function loadImgRep(rep)
@@ -146,6 +147,8 @@ function afficherCasier(id)
             $("#casier").append(data.nom );
             
             var idContenu = Object.keys(data.contenu);
+            nbTypeBoutDansCasier = idContenu.length;
+            
             $.each(idContenu, function (i, id) {
                 afficherBouteillesDansCasier(id, data.contenu[id], "#casier", true);
             });
@@ -171,7 +174,7 @@ function supprCasier(id) {
     
 }
 
-// casiers-page
+// casiers-page & casier-page
 function afficherBouteillesDansCasier(idBouteille, quantite, localisation, modifOK) {
     
     var qte = quantite;
@@ -186,7 +189,7 @@ function afficherBouteillesDansCasier(idBouteille, quantite, localisation, modif
         mimeType: 'application/json',
         success: function(data) { 
             $(localisation).append("<li>" +
-                    data.id + ". " + data.nom + ", " + data.region + ", " + data.annee + " | " + qte +
+                    "<span id='idBout'>" + data.id + "</span>" + ". " + data.nom + ", " + data.region + ", " + data.annee + " | " + qte +
               "</li>");
         },
         error: processError
@@ -233,6 +236,50 @@ function modifQteDansCasier(idCasier) {
     // récupérer l'id de la bouteills
     // et le contenu de l'input sur la page
     // mettre à jour PUT api/casiers, w/ idB & idC & qte ?
+    // + prendre en compte l'ajout d'une bouteille
+    
+    var elemLi;
+    var idBout;
+    var nbBout;
+    // nbType[...] -> variable globale
+    for (var i=1; i<=nbTypeBoutDansCasier; i++)
+    {
+        elemLi = "#casier>li:nth-child("+ i +")";
+        idBout = $(elemLi+">#idBout").text();
+        nbBout = $(elemLi+">input").val();
+        
+        var params="?idBouteille="+idBout+"&quantite="+nbBout;
+
+        $.ajax({ 
+            url: "/api/casiers/"+idCasier+params, 
+            type: 'PUT', 
+            dataType: 'json',
+            contentType: 'application/json',
+            mimeType: 'application/json',
+            success: function(data) {
+                $("#result").text("Modified");
+            },
+            error: processError
+        });
+
+    }
+    
+    if ($("#bouteille").val() && $("#qteInit").val()) // champs non vides
+    {
+        var params="?idBouteille="+$("#bouteille").val()+"&quantite="+$("#qteInit").val();
+
+        $.ajax({ 
+            url: "/api/casiers/"+idCasier+params, 
+            type: 'PUT', 
+            dataType: 'json',
+            contentType: 'application/json',
+            mimeType: 'application/json',
+            success: function(data) {
+                $("#result").text("Modified");
+            },
+            error: processError
+        });
+    }
     
 }
 
