@@ -73,7 +73,12 @@ public class CasierService {
         Casier casier = casiers.get(findIndexById(id));
         Bouteille bouteille = casier.findBouteilleById(idBouteille);
         
+        //TODO: la bouteille n'existe pas vraiment (à corriger avec bdd ?)
+        if (bouteille == null)
+            bouteille = new Bouteille("Bouteille test", "Region test", 1000, "bouteille.jpg");
+            
         casier.modifQuantity(bouteille, nouvQuantite);
+            
         
     }
     
