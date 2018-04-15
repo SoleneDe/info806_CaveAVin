@@ -1,3 +1,156 @@
-html * {
-    font-family: "Courier New" !important;
+/***************************************
+		  	   CSS GÉNÉRAL
+***************************************/
+
+html {
+	font-family: "Ubuntu" !important;
+	text-align: justify;
+	overflow: hidden;
+	background-color: rgba(153, 153, 0, 0.3);
+}
+
+button {
+	background-color: rgba(255, 255, 255, 0.4);
+	border: 1px solid black;
+	border-radius: 7px;
+	cursor: pointer;
+}
+
+button:active {
+	box-shadow: -2px -2px rgba(0, 0, 0, 0.5);
+}
+
+/***************************************
+		  BOUTEILLE-PAGE.JSP
+***************************************/
+
+#bouteille {
+	border-radius: 7px;
+	background-color: rgba(153, 153, 0, 0.3);
+	padding: 7px;
+	max-width: 400px;
+	width: 400px;
+	max-height: 230px;
+	position: relative;
+}
+
+#bouteille #nom {
+	font-size: 1.1em;
+	position: relative;
+	z-index: 1;
+	max-width: 290px;
+}
+
+#bouteille #informationsBouteille {
+	position: relative;
+	top: -30px;
+	font-size: 1.1em;
+	max-width: 200px;
+	max-height: 100px;
+	overflow: auto;
+}
+
+#bouteille #image {
+	max-width: 150px;
+	position: absolute;
+	right: 7px;
+	top: 7px;
+}
+
+#bouteille #photo {
+	border-radius: 7px;
+	max-height: 150px;
+	max-width: 256px;
+	z-index: 0;
+}
+
+#bouteille button {
+	position: absolute;
+	bottom:25px;
+	left: 25px;
+}
+
+/***************************************
+		  BOUTEILLES-PAGE.JSP
+***************************************/
+
+#bouteilles {
+	position: relative;
+	width: 100%;
+	max-height: 80vh;
+	margin-left: -8px;
+	padding: 7px;
+	overflow-y: auto;
+}
+
+#bouteilles .bouteille {
+	max-width: 80%;
+	border-radius: 7px;
+	border-bottom: 1px solid black;
+	margin-bottom: 5px;
+	margin-left: 15px;
+	padding-left: 7px;
+	list-style-type: none;
+}
+
+#bouteilles .bouteille a {
+	font-variant: normal;
+	text-decoration: none;
+	color: #000099;
+}
+
+
+/***************************************
+		  CASIERS-PAGE.JSP
+***************************************/
+
+#casiers {
+	position: relative;
+	width: 100%;
+	max-height: 80vh;
+	margin-left: -8px;
+	padding: 7px;
+	overflow-y: auto;
+}
+
+#casiers .casier {
+	max-width: 80%;
+	border-radius: 7px;
+	border-bottom: 1px solid black;
+	margin-bottom: 15px;
+	margin-left: 15px;
+	padding-left: 7px;
+	list-style-type: none;
+}
+
+#casiers .casier a, #casiers li a {
+	font-variant: normal;
+	text-decoration: none;
+	color: #000099;
+}
+
+/***************************************
+		  CASIER-PAGE.JSP
+***************************************/
+
+#casier {
+	position: relative;
+	width: 100%;
+	max-height: 80vh;
+	margin-left: -8px;
+	padding: 7px;
+	overflow-y: auto;
+}
+
+#casier .bouteille {
+	max-width: 80%;
+	margin-left: 15px;
+	padding-left: 7px;
+	list-style-type: none;
+}
+
+#casier .bouteille a {
+	font-variant: normal;
+	text-decoration: none;
+	color: #000099;
 }

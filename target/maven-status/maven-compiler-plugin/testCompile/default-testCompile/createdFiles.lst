@@ -1,2 +1,4 @@
-fr\univ_smb\isc\m2\integration_tests\DummyUnitTest.class
-fr\univ_smb\isc\m2\integration_tests\CustomerGetIT.class
+fr\univ_smb\isc\m2\integration_tests\BouteilleGetIT_Test.class
+fr\univ_smb\isc\m2\integration_tests\CasierGetIT_Test.class
+fr\univ_smb\isc\m2\domain\bouteille\BouteilleTest.class
+fr\univ_smb\isc\m2\domain\casier\CasierTest.class
