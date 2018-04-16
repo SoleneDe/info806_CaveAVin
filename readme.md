@@ -1,3 +1,4 @@
+mvn tomcat7:run
 
 go anonymous mode
 

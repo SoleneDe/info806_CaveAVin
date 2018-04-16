@@ -1,0 +1,17 @@
+# Created on 2018-04-16T16:19:36.126
+TestSet has not finished before stream error has appeared >> initializing exit by non-null configuration: DEFAULT
+java.io.EOFException
+	at java.io.DataInputStream.readInt(DataInputStream.java:392)
+	at org.apache.maven.surefire.booter.MasterProcessCommand.decode(MasterProcessCommand.java:115)
+	at org.apache.maven.surefire.booter.CommandReader$CommandRunnable.run(CommandReader.java:391)
+	at java.lang.Thread.run(Thread.java:745)
+
+
+# Created on 2018-04-16T16:19:36.902
+Unexpected IOException: 7,1,fr.univ_smb.isc.m2.integration_tests.BouteillePutIT_Test,should_200_On_Bouteille_Modification(fr.univ_smb.isc.m2.integration_tests.BouteillePutIT_Test),null,Connect to localhost:8080 [localhost/127.0.0.1\002C localhost/0:0:0:0:0:0:0:1] failed: Connection refused: connect,null,Connect to localhost:8080 [localhost/127.0.0.1\002C localhost/0:0:0:0:0:0:0:1] failed: Connection refused: connect,BouteillePutIT_Test.should_200_On_Bouteille_Modification:29 \00BB HttpHostConnect ...,org.apache.http.conn.HttpHostConnectException: Connect to localhost:8080 [localhost/127.0.0.1\002C localhost/0:0:0:0:0:0:0:1] failed: Connection refused: connect\000A\0009at fr.univ_smb.isc.m2.integration_tests.BouteillePutIT_Test.should_200_On_Bouteille_Modification(BouteillePutIT_Test.java:29)\000ACaused by: java.net.ConnectException: Connection refused: connect\000A\0009at fr.univ_smb.isc.m2.integration_tests.BouteillePutIT_Test.should_200_On_Bouteille_Modification(BouteillePutIT_Test.java:29)\000A
+
+
+# Created on 2018-04-16T16:19:36.908
+Unexpected IOException: 5,1,fr.univ_smb.isc.m2.integration_tests.BouteillePutIT_Test,should_Change_The_Bottle(fr.univ_smb.isc.m2.integration_tests.BouteillePutIT_Test),null,null,null
+
+
