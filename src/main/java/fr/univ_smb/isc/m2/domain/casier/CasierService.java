@@ -6,14 +6,13 @@ import fr.univ_smb.isc.m2.domain.bouteille.BouteilleService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.util.ArrayList;
 import java.util.List;
 import static java.util.stream.Collectors.toList;
 
 @Service
 public class CasierService {
 
-	private final CasierRepository casiersrep;
+	private static CasierRepository casiersrep;
 
     @Autowired()
     public CasierService(CasierRepository rep) {  
@@ -105,6 +104,16 @@ public class CasierService {
     	toModif.nom = nom;
     	casiersrep.save(toModif);
     }
+
+	public static void empty(Bouteille toDestroy) {
+		for(int i = 0 ; i < casiersrep.count() ; i++){
+			Casier temp = casiersrep.findAll().get(i);
+			if(temp.contains(toDestroy)){
+				temp.modifQuantity(toDestroy, 0);
+				casiersrep.save(temp);
+			}
+		}
+	}
     
     
 }

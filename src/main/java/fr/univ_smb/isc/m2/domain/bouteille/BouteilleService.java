@@ -3,6 +3,9 @@ package fr.univ_smb.isc.m2.domain.bouteille;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import fr.univ_smb.isc.m2.domain.casier.Casier;
+import fr.univ_smb.isc.m2.domain.casier.CasierService;
+
 import java.util.List;
 import static java.util.stream.Collectors.toList;
 
@@ -64,6 +67,9 @@ public class BouteilleService {
         int index = bouteillesrep.findAll().indexOf(bouteillesrep.findAll().get(findIndexById(id)));
         Bouteille toDestroy = bouteillesrep.findAll().get(index);
         bouteillesrep.delete(toDestroy);
+        
+        CasierService.empty(toDestroy);
+        
         return toDestroy;
     }
     

@@ -1,4 +1,4 @@
 -------------------------------------------------------------------------------
 Test set: fr.univ_smb.isc.m2.integration_tests.BouteilleDeleteIT_Test
 -------------------------------------------------------------------------------
-Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.61 s - in fr.univ_smb.isc.m2.integration_tests.BouteilleDeleteIT_Test
+Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.961 s - in fr.univ_smb.isc.m2.integration_tests.BouteilleDeleteIT_Test
