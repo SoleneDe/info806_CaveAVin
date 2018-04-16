@@ -2,7 +2,6 @@ package fr.univ_smb.isc.m2.domain.bouteille;
 
 
 import java.io.Serializable;
-import java.util.ArrayList;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -11,13 +10,9 @@ import javax.persistence.Id;
 
 @Entity
 public class Bouteille implements Serializable {
-	
-	/**
-	 * 
-	 */
-	private static final long serialVersionUID = 4631564447766852726L;
 
-	public static ArrayList<Bouteille> bouteilles = new ArrayList<Bouteille>();
+	private static final long serialVersionUID = 4631564447766852726L;
+	private static long lastId = 1;
 	
 	@Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -28,7 +23,6 @@ public class Bouteille implements Serializable {
     public String photo;
 
     public Bouteille() {
-    	bouteilles.add(this);
     }
     
     public Bouteille(String nom, String region, int annee, String photo) {
@@ -36,7 +30,7 @@ public class Bouteille implements Serializable {
         this.region = region;
         this.annee = annee;
         this.photo = photo;
-    	bouteilles.add(this);
+        id = lastId++;
     }
     
     @Override

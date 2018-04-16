@@ -6,7 +6,7 @@ import static org.junit.Assert.*;
 
 public class CasierTest {
     
-    /*@Test
+    @Test
     public void should_Not_Have_The_Same_Id() {
         Casier cas = new Casier("Casier");
         Casier cas2 = new Casier("Casier");
@@ -77,13 +77,13 @@ public class CasierTest {
         cas.add(bout);
         
         assertEquals(cas.nbBouteilles(bout2), 0);
-    }*/
+    }
     
-    /*@Test
+    @Test
     public void should_Find_Bottle_By_Its_Id() {
         Casier cas = new Casier("Casier");
         Bouteille bout = new Bouteille("Bout", "Reg", 2000, "placeholder.jpg");
-        int id = bout.id;
+        long id = bout.id;
         
         cas.add(bout);
         
@@ -94,9 +94,9 @@ public class CasierTest {
     public void should_Not_Find_Unexisting_Bottle_By_Its_Id() {
         Casier cas = new Casier("Casier");
         Bouteille bout = new Bouteille("Bout", "Reg", 2000, "placeholder.jpg");
-        int id = bout.id;
+        long id = bout.id;
         
         assertNull(cas.findBouteilleById(id));
-    }*/
+    }
     
 }

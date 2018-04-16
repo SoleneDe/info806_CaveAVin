@@ -14,7 +14,9 @@ import javax.persistence.Id;
 
 @Entity
 public class Casier {
-
+	
+	private static long lastId = 1;
+	
 	@Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     public long id;
@@ -31,6 +33,7 @@ public class Casier {
     public Casier(String nom) {
         this.nom = nom;
         contenu = new HashMap();
+        id = lastId++;
     }
     
     public void add(Bouteille bout){
@@ -62,9 +65,9 @@ public class Casier {
             return 0;
     }
     
-    public Bouteille findBouteilleById(int id){
+    public Bouteille findBouteilleById(long id2){
         for(Map.Entry<Bouteille, Integer> entry : contenu.entrySet()) {
-            if (entry.getKey().id == id)
+            if (entry.getKey().id == id2)
                 return entry.getKey();
         }
         

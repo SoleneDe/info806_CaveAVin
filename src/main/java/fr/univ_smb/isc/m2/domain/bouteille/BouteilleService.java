@@ -10,7 +10,7 @@ import org.springframework.stereotype.Service;
 @Service
 public class BouteilleService {
 
-    private final BouteilleRepository bouteillesrep;
+    private static BouteilleRepository bouteillesrep;
 
     @Autowired()
     public BouteilleService(BouteilleRepository rep) {
@@ -19,7 +19,7 @@ public class BouteilleService {
     	bouteillesrep.save(new Bouteille("Egon Muller-Scharzhof Scharzhofberger Riesling Trockenbeerenauslese", "Moselle", 2015, "egon-muller-scharzhof-riesling-2015.jpg"));
     }
 
-    public List<Bouteille> all() {
+    public static List<Bouteille> all() {
     	return bouteillesrep.findAll();
     }
 }

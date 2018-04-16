@@ -81,6 +81,7 @@ function afficherCasiers() {
 // casier-page
 function afficherCasier(id)
 {
+	console.log(id);
     $.ajax({ 
         url: "/api/casiers/"+id, 
         type: 'GET', 
@@ -88,6 +89,7 @@ function afficherCasier(id)
         contentType: 'application/json',
         mimeType: 'application/json',
         success: function(data) {
+        	console.log(data);
             document.title = data.nom;
             $("#nom").append(data.nom);
             
@@ -102,6 +104,7 @@ function afficherCasier(id)
 }
 
 function afficherBouteilleDansCasier(idBouteille, quantite, localisation) {
+	console.log("../../api/bouteilles/"+idBouteille);
     $.ajax({ 
         url: "../../api/bouteilles/"+idBouteille, 
         type: 'GET', 

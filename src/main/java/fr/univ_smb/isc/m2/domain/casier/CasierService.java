@@ -4,6 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import fr.univ_smb.isc.m2.domain.bouteille.Bouteille;
+import fr.univ_smb.isc.m2.domain.bouteille.BouteilleService;
 
 import java.util.List;
 
@@ -14,12 +15,13 @@ public class CasierService {
 
     @Autowired()
     public CasierService(CasierRepository rep) {
+    	List<Bouteille> list = BouteilleService.all();
     	Casier roger = new Casier("Roger");
-    	roger.add(Bouteille.bouteilles.get(1));
-    	roger.add(Bouteille.bouteilles.get(2));
+    	roger.add(list.get(0));
     	Casier dudu = new Casier("Dudu");
-    	dudu.add(Bouteille.bouteilles.get(2));
-    	dudu.add(Bouteille.bouteilles.get(2));
+    	dudu.add(list.get(1));
+    	dudu.add(list.get(1));
+    	
     	casiersrep = rep;
     	casiersrep.save(roger);
     	casiersrep.save(dudu);
