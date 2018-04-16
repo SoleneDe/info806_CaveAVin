@@ -1,6 +1,5 @@
 package fr.univ_smb.isc.m2.domain.bouteille;
 
-
 import java.io.Serializable;
 
 import javax.persistence.Entity;
@@ -9,20 +8,20 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
 @Entity
-public class Bouteille implements Serializable {
+public class Bouteille implements Serializable{
 
-	private static final long serialVersionUID = 4631564447766852726L;
-	private static long lastId = 1;
-	
-	@Id
+	private static final long serialVersionUID = 6704005946343779500L;
+    private static long lastId = 1;
+
+    @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     public long id;
-    public String nom;
-    public String region; 
+	public String nom;
+    public String region;
     public int annee;
     public String photo;
 
-    public Bouteille() {
+    public Bouteille(){
     }
     
     public Bouteille(String nom, String region, int annee, String photo) {
@@ -31,6 +30,19 @@ public class Bouteille implements Serializable {
         this.annee = annee;
         this.photo = photo;
         id = lastId++;
+    }
+    
+    public Bouteille(Bouteille other) {
+        nom = other.nom;
+        region = other.region;
+        annee = other.annee;
+        id = other.id;
+        photo = other.photo;
+    }
+    
+    public static void resetCounter() {
+    	lastId = 0;
+        
     }
     
     @Override

@@ -23,11 +23,13 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     @Override
     protected void configure(HttpSecurity http) throws Exception {
 
-        http.authorizeRequests()
-                .antMatchers(GET, "/api/**").anonymous()
-                .antMatchers(POST, "/api/**").authenticated()
-                .antMatchers(PUT, "/api/**").authenticated()
-                .antMatchers(DELETE, "/api/**").authenticated()
+        http
+                .csrf().disable()
+                .authorizeRequests()
+                .antMatchers(GET, "/api/**").permitAll()
+                .antMatchers(POST, "/api/**").permitAll()
+                .antMatchers(PUT, "/api/**").permitAll()
+                .antMatchers(DELETE, "/api/**").permitAll()
                 .antMatchers("/login").permitAll()
                 .antMatchers("/admin/**").access("hasRole('ROLE_ADMIN')")
                 .and()

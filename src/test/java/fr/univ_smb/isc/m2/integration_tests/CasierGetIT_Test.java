@@ -22,7 +22,7 @@ import static org.junit.Assert.assertEquals;
 public class CasierGetIT_Test {
 
 
-    /*@Test
+   @Test
     public void should_200_On_All_Casiers() throws IOException, URISyntaxException {
 
         HttpUriRequest request = new HttpGet(new URL("http://localhost:"+8080+"/api/casiers").toURI());
@@ -36,7 +36,7 @@ public class CasierGetIT_Test {
     @Test
     public void should_200_On_Existing_Casier() throws IOException, URISyntaxException {
 
-        HttpUriRequest request = new HttpGet(new URL("http://localhost:"+8080+"/api/casiers/" + 0).toURI());
+        HttpUriRequest request = new HttpGet(new URL("http://localhost:"+8080+"/api/casiers/" + 9).toURI());
 
         HttpResponse response = HttpClientBuilder.create().build().execute(request);
 
@@ -58,7 +58,7 @@ public class CasierGetIT_Test {
     @Test
     public void should_Have_The_Good_Amount_Of_Attributes() throws IOException, URISyntaxException
     {
-        HttpUriRequest request = new HttpGet(new URL("http://localhost:"+8080+"/api/casiers/" + 0).toURI());
+        HttpUriRequest request = new HttpGet(new URL("http://localhost:"+8080+"/api/casiers/" + 9).toURI());
         HttpResponse response = HttpClientBuilder.create().build().execute(request);
         
         BufferedReader rd = new BufferedReader(
@@ -71,5 +71,5 @@ public class CasierGetIT_Test {
         
         assertEquals(rootNode.size(), 3);
         
-    }*/
+    }
 }

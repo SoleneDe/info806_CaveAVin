@@ -7,38 +7,51 @@
 
 <head>
 
-	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 
-	<link href="<c:url value="/resources/css/main.css" />" rel="stylesheet">
-	<%--<script type='text/javascript' src="<c:url value="/resources/js/app.js" />"></script> --%>
-	<link href="<c:url value="/resources/css/perfect-scrollbar.css" />" rel="stylesheet">
+    <link href="<c:url value="/resources/css/main.css" />" rel="stylesheet">
+    <%--<script type='text/javascript' src="<c:url value="/resources/js/app.js" />"></script> --%>
 
-	<script type='text/javascript' src="<c:url value="/resources/js/perfect-scrollbar.min.js" />"></script>
+    <script type='text/javascript' src="<c:url value="/resources/js/jquery-3.3.1.min.js" />"></script>
+    <script type='text/javascript' src="<c:url value="/resources/js/script.js" />"></script>
+        
+    <script type="text/javascript" >
+    $(document).ready(function(){
+        loadImgRep("<c:url value="/resources/img/" />");
+        afficherBouteille(${id});
+        
+        $("#btnSuppr").click(function(){
+            supprBouteille(${id});
+        });
+        
+        $("#btnModif").click(function(){
+            modifBouteille(${id});
+        });
+    });
 
-	<script type='text/javascript' src="<c:url value="/resources/js/jquery-3.3.1.min.js" />"></script>
-	<script type='text/javascript' src="<c:url value="/resources/js/script.js" />"></script>
-		
-	<script type="text/javascript" >
-	$(document).ready(function(){
-		loadImgRep("<c:url value="/resources/img/" />");
-		afficherBouteille(${id});
-		var ps = new PerfectScrollbar('#informationsBouteille');
-	});
-	</script>
+    
+    </script>
 </head>
 
 <body>
 
-<div id="bouteille">
-	<h1 id="nom"></h1>
-	<div id="informationsBouteille">
-		<ul>
-			<li>Origine : <span id="origine"></span></li>
-			<li>Année : <span id="annee"></span></li>
-		</ul>
-	</div>
-	<div id="image"></div>
-   <button>Modifier la bouteille</button>
+<div>
+
+    <h1>Test pour afficher la bouteille</h1>
+    <div id="bout"></div>
+    
+    <form>
+        <input type="text" id="nom" name="nom" placeholder="Nom"/>
+        <input type="text" id="region" name="region" placeholder="Région"/>
+        <input type="text" id="annee" name="annee" placeholder="Année"/>
+        <input type="text" id="photo" name="photo" placeholder="Photo"/>
+        
+        <input type="button" value="Modifier" id="btnModif"/>
+    </form>
+    
+    <input type="button" value="Supprimer" id="btnSuppr"/>
+    <div id="result"></div>
+
 </div>
 
 </body>

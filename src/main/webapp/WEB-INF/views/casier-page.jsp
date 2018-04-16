@@ -11,9 +11,6 @@
 
     <link href="<c:url value="/resources/css/main.css" />" rel="stylesheet">
     <%--<script type='text/javascript' src="<c:url value="/resources/js/app.js" />"></script> --%>
-    <link href="<c:url value="/resources/css/perfect-scrollbar.css" />" rel="stylesheet">
-
-    <script type='text/javascript' src="<c:url value="/resources/js/perfect-scrollbar.min.js" />"></script>
 
     <script type='text/javascript' src="<c:url value="/resources/js/jquery-3.3.1.min.js" />"></script>
     <script type='text/javascript' src="<c:url value="/resources/js/script.js" />"></script>
@@ -21,7 +18,14 @@
     <script type="text/javascript" >
     $(document).ready(function(){
         afficherCasier(${id});
-        var ps = new PerfectScrollbar('#casier');
+        
+        $("#btnModifQte").click(function(){
+            modifQteDansCasier(${id});
+        });
+        
+        $("#btnSuppr").click(function(){
+            supprCasier(${id});
+        });
     });
 
     
@@ -32,8 +36,16 @@
 
 <div>
 
-    <h1 id="nom"></h1>
+    <h1>Test pour afficher le casier</h1>
     <div id="casier"></div>
+    
+    <input type="text" id="bouteille" name="bouteille" placeholder="idBouteille"/>
+    <input type="number" id="qteInit" value="1">
+    <input type="button" value="Valider changement bouteilles" id="btnModifQte"/>
+    
+    <input type="button" value="Supprimer" id="btnSuppr"/>
+    <div id="result"></div>
+
 
 </div>
 

@@ -29,6 +29,16 @@ public class HomeController {
         return "anonymous-home";
     }
 
+    @RequestMapping("/creer/bouteilles")
+    public String creerBouteille() {
+        return "creerBouteille-page";
+    }
+
+    @RequestMapping("/creer/casiers")
+    public String creerCasier() {
+        return "creerCasier-page";
+    }
+
 
     @RequestMapping(value = "/bouteilles", method = RequestMethod.GET)
     public String bouteilles() {

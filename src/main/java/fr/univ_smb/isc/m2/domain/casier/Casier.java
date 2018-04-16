@@ -1,8 +1,6 @@
 package fr.univ_smb.isc.m2.domain.casier;
 
 import fr.univ_smb.isc.m2.domain.bouteille.Bouteille;
-
-import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -18,16 +16,17 @@ public class Casier {
 	private static long lastId = 1;
 	
 	@Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+	@GeneratedValue(strategy = GenerationType.AUTO)
     public long id;
-	
-    public final String nom;
+    @Column(columnDefinition="TEXT")
+    public String nom;
     @Column(columnDefinition="TEXT")
     public HashMap<Bouteille, Integer> contenu;
 
     public Casier(){
-    	nom = "Casier "+id;
+    	nom = "Casier"+id;
     	contenu = new HashMap();
+        id = lastId++;
     }
     
     public Casier(String nom) {
@@ -36,11 +35,24 @@ public class Casier {
         id = lastId++;
     }
     
+    public static void resetCounter() {
+    	lastId = 0;
+        
+    }
+    
     public void add(Bouteille bout){
         if(contains(bout)){
             contenu.put(bout, contenu.get(bout) + 1);
         } else {
             contenu.put(bout, 1);
+        }
+    }
+    
+    public void modifQuantity(Bouteille bout, int nouvQuantite){
+        if (nouvQuantite < 1) {
+            contenu.remove(bout);
+        } else {
+            contenu.put(bout, nouvQuantite);
         }
     }
     
@@ -73,14 +85,6 @@ public class Casier {
         
         return null;
         
-    }
-    
-    public ArrayList<Bouteille> getAllBouteilles(){
-    	ArrayList<Bouteille> b = new ArrayList<Bouteille>();
-    	for(Map.Entry<Bouteille, Integer> entry : contenu.entrySet()) {
-    		b.add(entry.getKey());
-    	}
-    	return b;
     }
     
     @Override

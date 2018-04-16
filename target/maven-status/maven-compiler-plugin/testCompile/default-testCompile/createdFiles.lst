@@ -1,4 +1,10 @@
 fr\univ_smb\isc\m2\integration_tests\BouteilleGetIT_Test.class
+fr\univ_smb\isc\m2\integration_tests\BouteillePutIT_Test.class
+fr\univ_smb\isc\m2\integration_tests\CasierDeleteIT_Test.class
+fr\univ_smb\isc\m2\integration_tests\BouteillePostIT_Test.class
 fr\univ_smb\isc\m2\integration_tests\CasierGetIT_Test.class
+fr\univ_smb\isc\m2\integration_tests\BouteilleDeleteIT_Test.class
 fr\univ_smb\isc\m2\domain\bouteille\BouteilleTest.class
 fr\univ_smb\isc\m2\domain\casier\CasierTest.class
+fr\univ_smb\isc\m2\integration_tests\CasierPostIT_Test.class
+fr\univ_smb\isc\m2\integration_tests\CasierPutIT_Test.class

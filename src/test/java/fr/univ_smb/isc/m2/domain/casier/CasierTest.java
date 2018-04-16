@@ -55,6 +55,18 @@ public class CasierTest {
     }
     
     @Test
+    public void should_Contain_The_Right_Amount_Of_Bottles_After_Modif() {
+        Casier cas = new Casier("Casier");
+        Bouteille bout = new Bouteille("Bout", "Reg", 2000, "placeholder.jpg");
+        
+        cas.modifQuantity(bout, 5);
+        assertEquals(cas.nbBouteilles(), 5);
+        
+        cas.modifQuantity(bout, 3);
+        assertEquals(cas.nbBouteilles(), 3);
+    }
+    
+    @Test
     public void should_Be_Able_To_Count_The_Different_Kind_Of_Bottle() {
         Casier cas = new Casier("Casier");
         Bouteille bout = new Bouteille("Bout", "Reg", 2000, "placeholder.jpg");
@@ -97,6 +109,24 @@ public class CasierTest {
         long id = bout.id;
         
         assertNull(cas.findBouteilleById(id));
+    }
+    
+    @Test
+    public void should_Remove_A_Bottle_With_Quantity_Zero() {
+        Casier cas = new Casier("Casier");
+        Bouteille bout = new Bouteille("Bout", "Reg", 2000, "placeholder.jpg");
+        long id = bout.id;
+        
+        cas.add(bout);
+        cas.add(bout);
+        
+        assertEquals(cas.nbBouteilles(bout), 2);
+        
+        cas.modifQuantity(bout, 0);
+        
+        assertNull(cas.findBouteilleById(id));
+        assertEquals(cas.nbBouteilles(bout), 0);
+        assertEquals(cas.nbBouteilles(), 0);
     }
     
 }
