@@ -188,7 +188,7 @@ function afficherBouteillesDansCasier(idBouteille, quantite, localisation, modif
         contentType: 'application/json',
         mimeType: 'application/json',
         success: function(data) { 
-            $(localisation).append("<li><a href='./bouteilles/"+data.id+"'>" +
+            $(localisation).append("<li><a href='../bouteilles/"+data.id+"'>" +
                     "<span id='idBout'>" + data.id + "</span>" + ". " + data.nom + ", " + data.region + ", " + data.annee + " | " + qte +
               "</a></li>");
         },
