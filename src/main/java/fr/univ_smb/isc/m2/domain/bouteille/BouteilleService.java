@@ -1,10 +1,11 @@
 package fr.univ_smb.isc.m2.domain.bouteille;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Lazy;
 import org.springframework.stereotype.Service;
 
 import fr.univ_smb.isc.m2.domain.casier.Casier;
-import fr.univ_smb.isc.m2.domain.casier.CasierService;
+import fr.univ_smb.isc.m2.domain.casier.CasierRepository;
 
 import java.util.List;
 import static java.util.stream.Collectors.toList;
@@ -12,10 +13,12 @@ import static java.util.stream.Collectors.toList;
 @Service
 public class BouteilleService {
 
-    private static BouteilleRepository bouteillesrep;
+    private final BouteilleRepository bouteillesrep;
+    private final CasierRepository casiersrep;
 
     @Autowired()
-    public BouteilleService(BouteilleRepository rep) {
+    public BouteilleService(BouteilleRepository rep, @Lazy CasierRepository casierrep) {
+    	casiersrep = casierrep;
     	bouteillesrep = rep;
     	bouteillesrep.save(new Bouteille("Bouteille 1", "Region 1", 2001, "bouteille.jpg"));
     	bouteillesrep.save(new Bouteille("Bouteille 2", "Region 2", 2001, "bouteille.jpg"));
@@ -26,11 +29,11 @@ public class BouteilleService {
     	
     }
 
-    public static List<Bouteille> all() {
+    public List<Bouteille> all() {
         return bouteillesrep.findAll();
     }
 
-    public static Bouteille selectById(int id) {
+    public Bouteille selectById(int id) {
         List<Bouteille> collect = all().stream()
                 .filter(u -> u.id == id)
                 .collect(toList());
@@ -68,7 +71,11 @@ public class BouteilleService {
         Bouteille toDestroy = all().get(index);
         bouteillesrep.delete(toDestroy);
         
-        CasierService.empty(toDestroy);
+        List<Casier> casiers = casiersrep.findAll();
+        for(int i = 0 ; i < casiers.size() ; i++){
+        	if(casiers.get(i).contains(toDestroy))
+        		casiers.get(i).modifQuantity(toDestroy, 0);
+        }
         
         return toDestroy;
     }

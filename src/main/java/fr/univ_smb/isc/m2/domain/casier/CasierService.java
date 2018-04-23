@@ -1,7 +1,7 @@
 package fr.univ_smb.isc.m2.domain.casier;
 
 import fr.univ_smb.isc.m2.domain.bouteille.Bouteille;
-import fr.univ_smb.isc.m2.domain.bouteille.BouteilleService;
+import fr.univ_smb.isc.m2.domain.bouteille.BouteilleRepository;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -12,11 +12,13 @@ import static java.util.stream.Collectors.toList;
 @Service
 public class CasierService {
 
-	private static CasierRepository casiersrep;
+	private final CasierRepository casiersrep;
+	private final BouteilleRepository bouteillesrep;
 
     @Autowired()
-    public CasierService(CasierRepository rep) {  
-    	List<Bouteille> list = BouteilleService.all();
+    public CasierService(CasierRepository rep, BouteilleRepository bout) {  
+    	bouteillesrep = bout;
+    	List<Bouteille> list = bouteillesrep.findAll();
         Bouteille bout1 = list.get(0);
         Bouteille bout2 = list.get(1);
         Bouteille bout3 = list.get(2);
@@ -85,7 +87,8 @@ public class CasierService {
             casier.modifQuantity(bouteille, nouvQuantite);
             casiersrep.save(casier);
         }else{
-        	bouteille = BouteilleService.selectById(idBouteille);
+        	
+        	bouteille = selectBottleById(idBouteille);
         	casier.add(bouteille);
         	casier.modifQuantity(bouteille, nouvQuantite);
         	casiersrep.save(casier);
@@ -105,7 +108,7 @@ public class CasierService {
     	casiersrep.save(toModif);
     }
 
-	public static void empty(Bouteille toDestroy) {
+	public void empty(Bouteille toDestroy) {
 		for(int i = 0 ; i < casiersrep.count() ; i++){
 			Casier temp = casiersrep.findAll().get(i);
 			if(temp.contains(toDestroy)){
@@ -114,6 +117,18 @@ public class CasierService {
 			}
 		}
 	}
+	
+	private Bouteille selectBottleById(int id) {
+        List<Bouteille> collect = bouteillesrep.findAll().stream()
+                .filter(u -> u.id == id)
+                .collect(toList());
+
+        if (collect.isEmpty()) {
+            return null;
+        } else {
+            return collect.get(0);
+        }
+    }
     
     
 }
