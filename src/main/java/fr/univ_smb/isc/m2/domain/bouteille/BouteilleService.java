@@ -73,8 +73,10 @@ public class BouteilleService {
         
         List<Casier> casiers = casiersrep.findAll();
         for(int i = 0 ; i < casiers.size() ; i++){
-        	if(casiers.get(i).contains(toDestroy))
+        	if(casiers.get(i).contains(toDestroy)){
         		casiers.get(i).modifQuantity(toDestroy, 0);
+        		casiersrep.save(casiers.get(i));
+        	}
         }
         
         return toDestroy;

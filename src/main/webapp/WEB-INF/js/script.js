@@ -284,5 +284,5 @@ function modifQteDansCasier(idCasier) {
 }
 
 function processError(data,status,er) { 
-    alert("error: "+data[0]+" status: "+status+" er:"+er);
+    console.log("error: "+data[0]+" status: "+status+" er:"+er);
 }
