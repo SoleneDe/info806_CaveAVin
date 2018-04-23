@@ -51,6 +51,7 @@ public class BouteillePutIT_Test {
         assertEquals(rootNode.get("nom").asText(), "Test");
         assertEquals(rootNode.get("region").asText(), "Test");
         assertEquals(rootNode.get("annee").asText(), "2000");
+        assertEquals(rootNode.get("photo").asText(), "bouteille.jpg");
 
 
     }

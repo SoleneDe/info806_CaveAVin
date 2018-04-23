@@ -69,6 +69,7 @@ public class CasierGetIT_Test {
         ObjectMapper mapper = new ObjectMapper();
         JsonNode rootNode = mapper.readTree(result);
         
+        assertEquals(rootNode.get("id").asText(), "9");
         assertEquals(rootNode.size(), 3);
         
     }

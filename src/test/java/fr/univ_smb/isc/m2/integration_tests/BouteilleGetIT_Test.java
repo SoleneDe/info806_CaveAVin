@@ -69,6 +69,7 @@ public class BouteilleGetIT_Test {
         ObjectMapper mapper = new ObjectMapper();
         JsonNode rootNode = mapper.readTree(result);
         
+        assertEquals(rootNode.get("id").asText(), "1");
         assertEquals(rootNode.size(), 5);
         
     }
