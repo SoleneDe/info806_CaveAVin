@@ -51,7 +51,7 @@ public class CasierService {
     }
 
     public Casier selectById(int id) {
-        List<Casier> collect = casiersrep.findAll().stream()
+        List<Casier> collect = all().stream()
                 .filter(u -> u.id == id)
                 .collect(toList());
 
@@ -63,8 +63,8 @@ public class CasierService {
     }
     
     public int findIndexById(int id) {
-        for (int i=0; i<casiersrep.findAll().size(); i++) {
-            if (casiersrep.findAll().get(i).id == id) {
+        for (int i=0; i<all().size(); i++) {
+            if (all().get(i).id == id) {
                 return i;
             }
         }
@@ -78,7 +78,7 @@ public class CasierService {
     }
     
     public void modifQuantity(int id, int idBouteille, int nouvQuantite) {
-        Casier casier = casiersrep.findAll().get(findIndexById(id));
+        Casier casier = all().get(findIndexById(id));
         Bouteille bouteille = casier.findBouteilleById(idBouteille);
         
         if(bouteille != null) {
@@ -93,14 +93,14 @@ public class CasierService {
     }
     
     public Casier delete(int id) {
-        int index = casiersrep.findAll().indexOf(casiersrep.findAll().get(findIndexById(id)));
-        Casier toDestroy = casiersrep.findAll().get(index);
+        int index = all().indexOf(all().get(findIndexById(id)));
+        Casier toDestroy = all().get(index);
         casiersrep.delete(toDestroy);
         return toDestroy;
     }
     
     public void modifNom(int id, String nom) {
-    	Casier toModif = casiersrep.findAll().get(findIndexById(id));
+    	Casier toModif = all().get(findIndexById(id));
     	toModif.nom = nom;
     	casiersrep.save(toModif);
     }

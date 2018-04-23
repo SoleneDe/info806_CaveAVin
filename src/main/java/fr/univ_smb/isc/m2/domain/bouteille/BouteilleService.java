@@ -31,7 +31,7 @@ public class BouteilleService {
     }
 
     public static Bouteille selectById(int id) {
-        List<Bouteille> collect = bouteillesrep.findAll().stream()
+        List<Bouteille> collect = all().stream()
                 .filter(u -> u.id == id)
                 .collect(toList());
 
@@ -43,8 +43,8 @@ public class BouteilleService {
     }
     
     public int findIndexById(int id) {
-        for (int i=0; i<bouteillesrep.findAll().size(); i++) {
-            if (bouteillesrep.findAll().get(i).id == id) {
+        for (int i=0; i<all().size(); i++) {
+            if (all().get(i).id == id) {
                 return i;
             }
         }
@@ -64,8 +64,8 @@ public class BouteilleService {
     }
     
     public Bouteille delete(int id) {
-        int index = bouteillesrep.findAll().indexOf(bouteillesrep.findAll().get(findIndexById(id)));
-        Bouteille toDestroy = bouteillesrep.findAll().get(index);
+        int index = all().indexOf(all().get(findIndexById(id)));
+        Bouteille toDestroy = all().get(index);
         bouteillesrep.delete(toDestroy);
         
         CasierService.empty(toDestroy);
@@ -74,25 +74,25 @@ public class BouteilleService {
     }
     
     public void modifNom(int id, String nom) {
-    	Bouteille toModif = bouteillesrep.findAll().get(findIndexById(id));
+    	Bouteille toModif = all().get(findIndexById(id));
     	toModif.nom = nom;
     	bouteillesrep.save(toModif);
     }
     
     public void modifRegion(int id, String region) {
-    	Bouteille toModif = bouteillesrep.findAll().get(findIndexById(id));
+    	Bouteille toModif = all().get(findIndexById(id));
     	toModif.region = region;
     	bouteillesrep.save(toModif);
     }
     
     public void modifAnnee(int id, int annee) {
-    	Bouteille toModif = bouteillesrep.findAll().get(findIndexById(id));
+    	Bouteille toModif = all().get(findIndexById(id));
     	toModif.annee = annee;
     	bouteillesrep.save(toModif);
     }
     
     public void modifPhoto(int id, String photo) {
-    	Bouteille toModif = bouteillesrep.findAll().get(findIndexById(id));
+    	Bouteille toModif = all().get(findIndexById(id));
     	toModif.photo = photo;
     	bouteillesrep.save(toModif);
     }
