@@ -18,10 +18,10 @@ function afficherBouteilles()
         mimeType: 'application/json',
         success: function(data) { 
             $.each(data, function (i, item) {
-                $("#listeBout").append("<li>" +
+                $("#listeBout").append("<li><a href='./bouteilles/"+item.id+"'>" +
                         item.id + ". " + item.nom + ", " + item.region + ", " + item.annee +
                         "<img width='30px' height='30px' src='"+ imgRep + item.photo +"'></img>" +
-                  "</li>");
+                  "</a></li>");
             });
         },
         error: processError
@@ -115,9 +115,9 @@ function afficherCasiers() {
         mimeType: 'application/json',
         success: function(data) { 
             $.each(data, function (i, item) {
-                $("#listeCas").append("<li>" +
+                $("#listeCas").append("<li><a href='./casiers/"+item.id+"'>" +
                         item.id + ". " + item.nom +
-                    "</li>");
+                    "</a></li>");
           
                 $("#listeCas").append("<ul id='casier"+ item.id +"'>");
 
@@ -188,9 +188,9 @@ function afficherBouteillesDansCasier(idBouteille, quantite, localisation, modif
         contentType: 'application/json',
         mimeType: 'application/json',
         success: function(data) { 
-            $(localisation).append("<li>" +
+            $(localisation).append("<li><a href='./bouteilles/"+data.id+"'>" +
                     "<span id='idBout'>" + data.id + "</span>" + ". " + data.nom + ", " + data.region + ", " + data.annee + " | " + qte +
-              "</li>");
+              "</a></li>");
         },
         error: processError
     });
